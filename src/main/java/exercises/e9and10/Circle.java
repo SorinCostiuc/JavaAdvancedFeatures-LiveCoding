@@ -1,8 +1,8 @@
-package exercises.e9;
+package exercises.e9and10;
 
 import java.util.List;
 
-public class Circle {
+public class Circle implements Movable {
     private Point2D center;
     private Point2D point;
 
@@ -24,7 +24,15 @@ public class Circle {
     }
 
     public List<Point2D> getSlicePoints() {
-        return List.of(new Point2D(point.getY(), -1 * point.getX()), new Point2D(-1 * point.getX(), -1 * point.getY()), new Point2D(-1 * point.getY(), point.getX()));
+        return List.of(new Point2D(point.getY(), -1 * point.getX()),
+                new Point2D(-1 * point.getX(), -1 * point.getY()),
+                new Point2D(-1 * point.getY(), point.getX()));
     }
 
+    @Override
+    public void move(MoveDirection moveDirection) {
+        center.move(moveDirection);
+        MoveDirection newMoveDirection = new MoveDirection(point.getX() + moveDirection.getX(), point.getY() + moveDirection.getY());
+        point.move(newMoveDirection);
+    }
 }
