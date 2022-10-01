@@ -19,6 +19,7 @@ magazine" in the console
         magazine.loadBullet("4");
         magazine.loadBullet("5");
         magazine.loadBullet("6");
+        magazine.loadBullet("7");
 
         magazine.shot();
         magazine.shot();
