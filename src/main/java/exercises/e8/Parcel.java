@@ -4,7 +4,7 @@ public class Parcel{
     private final int xLength;
     private final int yLength;
     private final int zLength;
-    private float weight;
+    private final float weight;
     private final boolean isExpress;
 
 
