@@ -1,4 +1,4 @@
-package exercises.e9and10;
+package exercises.e9and10and11;
 
 public class Main {
     public static void main(String[] args) {
@@ -24,6 +24,14 @@ move(MoveDirection moveDirection) method is called, the objects are to change th
 the provided direction (MoveDirection).
     Validate the offset by calling the other Circle methods
          */
+//        E11
+        /*
+        Create a Resizable interface with the resize(double resizeFactor) method.
+Implement the interface in the class from the previous task (Circle). When calling the resize(double
+resizeFactor) method, the circle should change its size by a given factor (1.5, 0.5, 10.0, etc.).
+Validate the resizing by calling the other Circle methods
+         */
+//E9
         Point2D centerPoint = new Point2D(0, 0);
         Point2D circlePoint = new Point2D(3, 6);
         Circle circle = new Circle(centerPoint, circlePoint);
@@ -32,9 +40,17 @@ the provided direction (MoveDirection).
         System.out.printf("Circle's area is: %.2f \n", circle.getArea());
         System.out.println("Circle's slices are: " + circle.getSlicePoints());
         System.out.println("----------");
-
+//E10
         circle.move(new MoveDirection(2, 3));
 //        except slice points, all should be the same
+        System.out.printf("Circle's radius is: %.2f \n", circle.getRadius());
+        System.out.printf("Circle's perimeter is: %.2f \n", circle.getPerimeter());
+        System.out.printf("Circle's area is: %.2f \n", circle.getArea());
+        System.out.println("Circle's slices are: " + circle.getSlicePoints());
+
+        System.out.println("----------");
+//E11
+        circle.resize(2.0f);
         System.out.printf("Circle's radius is: %.2f \n", circle.getRadius());
         System.out.printf("Circle's perimeter is: %.2f \n", circle.getPerimeter());
         System.out.printf("Circle's area is: %.2f \n", circle.getArea());

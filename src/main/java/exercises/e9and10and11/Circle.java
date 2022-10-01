@@ -1,8 +1,8 @@
-package exercises.e9and10;
+package exercises.e9and10and11;
 
 import java.util.List;
 
-public class Circle implements Movable {
+public class Circle implements Movable, Resizable {
     private Point2D center;
     private Point2D point;
 
@@ -34,5 +34,11 @@ public class Circle implements Movable {
         center.move(moveDirection);
         MoveDirection newMoveDirection = new MoveDirection(point.getX() + moveDirection.getX(), point.getY() + moveDirection.getY());
         point.move(newMoveDirection);
+    }
+
+    @Override
+    public void resize(double resizeFactor) {
+        MoveDirection newPointDirection = new MoveDirection(point.getX() * resizeFactor, point.getY() * resizeFactor);
+        point.move(newPointDirection);
     }
 }
