@@ -13,10 +13,10 @@ import java.util.Objects;
 @ToString
 public class Manufacturer {
     private String name;
-    private String yearOfEstablishment;
+    private Integer yearOfEstablishment;
     private String country;
 
-    public Manufacturer(String name, String yearOfEstablishment, String country) {
+    public Manufacturer(String name, Integer yearOfEstablishment, String country) {
         this.name = name;
         this.yearOfEstablishment = yearOfEstablishment;
         this.country = country;

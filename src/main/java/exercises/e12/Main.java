@@ -19,19 +19,19 @@ necessary methods and constructor parameters. Implement the hashcode() and equal
         Manufacturer manufacturer1 = Manufacturer.builder()
                 .name("Volvo")
                 .country("Sweden")
-                .yearOfEstablishment("1927")
+                .yearOfEstablishment(1927)
                 .build();
 
         Manufacturer manufacturer2 = Manufacturer.builder()
                 .name("Audi")
                 .country("Germany")
-                .yearOfEstablishment("1909")
+                .yearOfEstablishment(1909)
                 .build();
 
         Manufacturer manufacturer3 = Manufacturer.builder()
                 .name("Renault")
                 .country("France")
-                .yearOfEstablishment("1898")
+                .yearOfEstablishment(1998)
                 .build();
 
         Car car1 = Car.builder()
@@ -76,9 +76,15 @@ necessary methods and constructor parameters. Implement the hashcode() and equal
         System.out.println(carService.getCheapestCar());
         System.out.println("----------" + " Car with at least 3 manufacturers " + "----------");
         System.out.println(carService.getCarWithAtLeastThreeManufacturers());
-        System.out.println("----------" + " Sorted cars descending" + "----------");
+        System.out.println("----------" + " Sorted cars descending " + "----------");
         System.out.println(carService.getSortedCars(SortOrder.DESCENDING));
-        System.out.println("----------" + " Sorted cars ascending" + "----------");
+        System.out.println("----------" + " Sorted cars ascending " + "----------");
         System.out.println(carService.getSortedCars(SortOrder.ASCENDING));
+        System.out.println("----------" + " Check if car is in service " + "----------");
+        System.out.println(carService.isCarInService("v40"));
+        System.out.println("----------" + " Cars manufactured by " + "----------");
+        System.out.println(carService.getCarsManufacturedBy(manufacturer3));
+        System.out.println("----------" + " Cars manufacturer year " + "----------");
+        System.out.println(carService.getCarsManufacturedByACertainYear(1932));
     }
 }

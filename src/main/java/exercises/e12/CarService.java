@@ -12,8 +12,7 @@ Create a CarService class that will contain a list of cars and implement the met
 9. returning a list of all cars sorted according to the passed parameter: ascending / descending,
 10. checking if a specific car is on the list,
 11. returning a list of cars manufactured by a specific manufacturer,
-12. returning the list of cars manufactured by the manufacturer with the year of establishment <,>, <=,> =,
-=,! = from the given.
+12. returning the list of cars manufactured by the manufacturer with the year of establishment <,>, <=,> =,=,! = from the given.
  */
 
 import lombok.Builder;
@@ -21,7 +20,6 @@ import lombok.Builder;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
@@ -83,6 +81,24 @@ public class CarService {
                 .sorted((car1, car2) -> (int) ((car1.getYearOfManufacture() - car2.getYearOfManufacture()) * sortSignX.get()))
                 .map(Car::getName)
                 .collect(Collectors.toList());
+    }
 
+    public boolean isCarInService(String model) {
+        return cars.stream()
+                .anyMatch(car -> car.getModel().equals(model));
+    }
+
+    public List<Car> getCarsManufacturedBy(Manufacturer manufacturer) {
+        return cars.stream()
+                .filter(car -> car.getManufacturerList().contains(manufacturer))
+                .collect(Collectors.toList());
+    }
+
+    public List<Car> getCarsManufacturedByACertainYear(Integer year) {
+
+        return cars.stream()
+                .filter(car -> car.getManufacturerList().stream()
+                        .anyMatch(manufacturer -> manufacturer.getYearOfEstablishment() > year))
+                .collect(Collectors.toList());
     }
 }
