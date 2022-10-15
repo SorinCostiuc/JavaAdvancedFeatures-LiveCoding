@@ -28,10 +28,16 @@ necessary methods and constructor parameters. Implement the hashcode() and equal
                 .yearOfEstablishment("1909")
                 .build();
 
+        Manufacturer manufacturer3 = Manufacturer.builder()
+                .name("Renault")
+                .country("France")
+                .yearOfEstablishment("1898")
+                .build();
+
         Car car1 = Car.builder()
                 .name("VAG")
                 .model("A6")
-                .price(12000)
+                .price(20000)
                 .yearOfManufacture(2014)
                 .engineType(EngineType.V12)
                 .manufacturerList(List.of(manufacturer2))
@@ -40,21 +46,39 @@ necessary methods and constructor parameters. Implement the hashcode() and equal
         Car car2 = Car.builder()
                 .name("Hatchback")
                 .model("v40")
-                .price(18000)
+                .price(23000)
                 .yearOfManufacture(1899)
                 .engineType(EngineType.V8)
                 .manufacturerList(List.of(manufacturer1, manufacturer2))
                 .build();
 
+        Car car3 = Car.builder()
+                .name("Dacia")
+                .model("Spring")
+                .price(13000)
+                .yearOfManufacture(2013)
+                .engineType(EngineType.S3)
+                .manufacturerList(List.of(manufacturer1, manufacturer2, manufacturer3))
+                .build();
+
         CarService carService = new CarService();
-        carService.addCars(List.of(car1, car2));
+        carService.addCars(List.of(car1, car2, car3));
 
+        System.out.println("----------" + " All cars " + "----------");
         System.out.println(carService.getAllCars());
-        System.out.println("----------");
+        System.out.println("----------" + " V12 cars " + "----------");
         System.out.println(carService.getV12Cars());
-        System.out.println("----------");
+        System.out.println("----------" + " Manufacturer year before 1999 " + "----------");
         System.out.println(carService.getManufacturerYearBefore1999());
-        System.out.println("----------");
-
+        System.out.println("----------" + " Most Expensive car " + "----------");
+        System.out.println(carService.getMostExpensiveCar());
+        System.out.println("----------" + " Cheapest car " + "----------");
+        System.out.println(carService.getCheapestCar());
+        System.out.println("----------" + " Car with at least 3 manufacturers " + "----------");
+        System.out.println(carService.getCarWithAtLeastThreeManufacturers());
+        System.out.println("----------" + " Sorted cars descending" + "----------");
+        System.out.println(carService.getSortedCars(SortOrder.DESCENDING));
+        System.out.println("----------" + " Sorted cars ascending" + "----------");
+        System.out.println(carService.getSortedCars(SortOrder.ASCENDING));
     }
 }
