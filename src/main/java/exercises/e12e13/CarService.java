@@ -1,4 +1,4 @@
-package exercises.e12;
+package exercises.e12e13;
 /*
 Create a CarService class that will contain a list of cars and implement the methods.
 1. adding cars to the list,
@@ -14,8 +14,6 @@ Create a CarService class that will contain a list of cars and implement the met
 11. returning a list of cars manufactured by a specific manufacturer,
 12. returning the list of cars manufactured by the manufacturer with the year of establishment <,>, <=,> =,=,! = from the given.
  */
-
-import lombok.Builder;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -96,10 +94,10 @@ public class CarService {
     }
 
     public List<Car> getCarsManufacturedByACertainYear(Predicate<Integer> predicate) {
-
         return cars.stream()
                 .filter(car -> car.getManufacturerList().stream()
-                        .anyMatch(manufacturer -> predicate.test(manufacturer.getYearOfEstablishment())))
+                        .map(Manufacturer::getYearOfEstablishment)
+                        .anyMatch(predicate))
                 .collect(Collectors.toList());
     }
 }
