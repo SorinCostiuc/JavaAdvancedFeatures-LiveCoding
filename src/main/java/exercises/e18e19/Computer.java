@@ -1,4 +1,4 @@
-package exercises.e18;
+package exercises.e18e19;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

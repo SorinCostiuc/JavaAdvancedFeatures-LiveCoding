@@ -1,4 +1,4 @@
-package exercises.e18;
+package exercises.e18e19;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,6 +20,8 @@ Instantiate several objects and check how the methods work
         System.out.println(computer2.equals(computer1));
         System.out.println(computer3.getModel());
         System.out.println("----------");
+        Laptop laptop = new Laptop("AMD", 128, "integrated", "HP", "Pavilion", 20);
+        System.out.println(laptop);
 
     }
 }
