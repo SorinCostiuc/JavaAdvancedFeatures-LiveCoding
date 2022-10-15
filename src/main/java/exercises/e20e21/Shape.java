@@ -1,4 +1,4 @@
-package exercises.e20;
+package exercises.e20e21;
 
 public abstract class Shape {
     abstract int calculatePerimeter();
