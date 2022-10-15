@@ -85,6 +85,6 @@ necessary methods and constructor parameters. Implement the hashcode() and equal
         System.out.println("----------" + " Cars manufactured by " + "----------");
         System.out.println(carService.getCarsManufacturedBy(manufacturer3));
         System.out.println("----------" + " Cars manufacturer year " + "----------");
-        System.out.println(carService.getCarsManufacturedByACertainYear(1932));
+        System.out.println(carService.getCarsManufacturedByACertainYear((year) -> year != 1909));
     }
 }

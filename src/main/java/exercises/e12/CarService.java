@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class CarService {
@@ -94,11 +95,11 @@ public class CarService {
                 .collect(Collectors.toList());
     }
 
-    public List<Car> getCarsManufacturedByACertainYear(Integer year) {
+    public List<Car> getCarsManufacturedByACertainYear(Predicate<Integer> predicate) {
 
         return cars.stream()
                 .filter(car -> car.getManufacturerList().stream()
-                        .anyMatch(manufacturer -> manufacturer.getYearOfEstablishment() > year))
+                        .anyMatch(manufacturer -> predicate.test(manufacturer.getYearOfEstablishment())))
                 .collect(Collectors.toList());
     }
 }
