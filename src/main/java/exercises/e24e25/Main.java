@@ -1,4 +1,4 @@
-package exercises.e24;
+package exercises.e24e25;
 
 public class Main {
     public static void main(String[] args) {

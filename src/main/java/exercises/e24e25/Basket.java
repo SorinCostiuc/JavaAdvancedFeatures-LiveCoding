@@ -1,4 +1,4 @@
-package exercises.e24;
+package exercises.e24e25;
 
 public class Basket {
     private Integer elementNumber;
