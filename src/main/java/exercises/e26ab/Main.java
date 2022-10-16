@@ -47,7 +47,7 @@ manufacturer,
 
         Model m1 = Model.builder()
                 .name("Audi")
-                .productionStartYear(2001)
+                .productionStartYear(2021)
                 .cars(List.of(car1))
                 .build();
         Model m2 = Model.builder()
@@ -57,12 +57,12 @@ manufacturer,
                 .build();
         Model m3 = Model.builder()
                 .name("Mercedes")
-                .productionStartYear(2005)
+                .productionStartYear(2015)
                 .cars(List.of(car3))
                 .build();
         Model m4 = Model.builder()
                 .name("Volvo")
-                .productionStartYear(2011)
+                .productionStartYear(2012)
                 .cars(List.of(car4))
                 .build();
 
@@ -95,7 +95,19 @@ manufacturer,
         System.out.println(dealership.getAllModelsName());
         System.out.println("-------------------" + " Get all models starting production year " + "-------------------");
         System.out.println(dealership.getYearOfStartingProductionModels());
-
-
+        System.out.println("-------------------" + " Get all cars name " + "-------------------");
+        System.out.println(dealership.getAllCarsName());
+        System.out.println("-------------------" + " Get all cars description " + "-------------------");
+        System.out.println(dealership.getAllCarsDescription());
+        System.out.println("-------------------" + " Get all models with even production start year " + "-------------------");
+        System.out.println(dealership.getModelsWithEvenProductionStartYear());
+        System.out.println("-------------------" + " Get all cars with manufacturers that have an even year of establishment " + "-------------------");
+        System.out.println(dealership.getCarsWithEvenYearManufacturerFoundation());
+        System.out.println("-------------------" + " Get all cars with even starting production year and odd etablisment manufacturer year " + "-------------------");
+        System.out.println(dealership.getCarsWithEvenStartingProductionYearAndOddEstablishingManufacturerYear());
+        System.out.println("-------------------" + " Get all cabrio cars with odd starting production year and even etablisment manufacturer year " + "-------------------");
+        System.out.println(dealership.getCabrioCarsWithOddStartingProductionYearAndEvenEstablishingManufacturerYear());
+        System.out.println("-------------------" + " Get all sedan cars from a model newer than 2019 and the manufacturer's founding year less than 1919 " + "-------------------");
+        System.out.println(dealership.getSedanCarsWithModelNewerThan2019AndManufacturerOlderThan1919());
     }
 }

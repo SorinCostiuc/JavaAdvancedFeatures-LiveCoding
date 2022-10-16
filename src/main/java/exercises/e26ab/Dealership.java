@@ -49,4 +49,68 @@ public class Dealership {
                 .map(Model::getProductionStartYear)
                 .collect(Collectors.toList());
     }
+
+    public List<String> getAllCarsName() {
+        return getAllCars().stream()
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
+    public List<String> getAllCarsDescription() {
+        return getAllCars().stream()
+                .map(Car::getDescription)
+                .collect(Collectors.toList());
+    }
+
+    public List<Model> getModelsWithEvenProductionStartYear() {
+        return getAllModels().stream()
+                .filter(model -> model.getProductionStartYear() % 2 == 0)
+                .collect(Collectors.toList());
+    }
+
+    public List<Car> getCarsWithEvenYearManufacturerFoundation() {
+        return getManufacturers().stream()
+                .filter(manufacturer -> manufacturer.getYearOfCreation() % 2 == 0)
+                .map(Manufacturer::getModels)
+                .flatMap(Collection::stream)
+                .map(Model::getCars)
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
+    }
+
+    public List<Car> getCarsWithEvenStartingProductionYearAndOddEstablishingManufacturerYear() {
+        return getManufacturers().stream()
+                .filter(manufacturer -> manufacturer.getYearOfCreation() % 2 == 1)
+                .map(Manufacturer::getModels)
+                .flatMap(Collection::stream)
+                .filter(model -> model.getProductionStartYear() % 2 == 0)
+                .map(Model::getCars)
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
+    }
+
+    public List<Car> getCabrioCarsWithOddStartingProductionYearAndEvenEstablishingManufacturerYear() {
+        return getManufacturers().stream()
+                .filter(manufacturer -> manufacturer.getYearOfCreation() % 2 == 0)
+                .map(Manufacturer::getModels)
+                .flatMap(Collection::stream)
+                .filter(model -> model.getProductionStartYear() % 2 == 1)
+                .map(Model::getCars)
+                .flatMap(Collection::stream)
+                .filter(car -> car.getCarType().equals(CarType.CABRIO))
+                .collect(Collectors.toList());
+    }
+
+    public List<Car> getSedanCarsWithModelNewerThan2019AndManufacturerOlderThan1919() {
+        return getManufacturers().stream()
+                .filter(manufacturer -> manufacturer.getYearOfCreation() < 1919)
+                .map(Manufacturer::getModels)
+                .flatMap(Collection::stream)
+                .filter(model -> model.getProductionStartYear() > 2019)
+                .map(Model::getCars)
+                .flatMap(Collection::stream)
+                .filter(car -> car.getCarType().equals(CarType.SEDAN))
+                .collect(Collectors.toList());
+    }
+
 }
